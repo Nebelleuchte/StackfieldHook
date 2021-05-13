@@ -1,0 +1,12 @@
+## CONFIG-FILE für StackfieldHook
+# Bitte entsprechende Werte setzen.
+
+STACKFIELD_URL:
+  CHAT: ""
+  TASK: ""
+
+LOG:
+  LOGFILE: "logfile.log" #Bei Aufruf über die Shell erfolgt die Ausgabe immer auf der Konsole!
+  DELETE: "weekly"
+  LEVEL: "debug" #debug / info / warning / error -> info empfohlen
+
