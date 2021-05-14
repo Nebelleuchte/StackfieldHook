@@ -25,12 +25,13 @@ class StackfieldHook
 
   def initialize(type="C", title="Titel nicht angegeben", *optional)
     # Configfile laden
-    unless File.exist?('config.yaml')
-      puts "Die Konfigurationsdatei konnte nicht gefunden werden."
-      exit
-    else
-      @config = YAML::load_file('config.yaml')
-    end
+    configfile = File.expand_path(File.dirname(__FILE__)) + '/config.yaml'
+      unless File.exist?(configfile)
+        puts "Die Konfigurationsdatei konnte nicht gefunden werden."
+        exit
+      else
+        @config = YAML::load_file(configfile)
+      end
 
     @log = Logger.new(@config["LOG"]["LOGFILE"], @config["LOG"]["DELETE"])
     @log.datetime_format = "%Y-%m-%d %H:%M"
